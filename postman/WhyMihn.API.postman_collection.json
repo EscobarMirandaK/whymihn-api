@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "7c3ff18b-4a81-4068-8872-46665ceb6a22",
+		"name": "WhyMihn.API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21856722",
+		"_collection_link": "https://universal-escape-833787.postman.co/workspace/Enbio~7393e2de-a8d7-4afb-a262-984f739ef21f/collection/21856722-7c3ff18b-4a81-4068-8872-46665ceb6a22?action=share&creator=21856722&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "[public] - Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\": \"kevin17\",\r\n    \"Email\": \"kescobarm94+17@gmail.com\",\r\n    \"IdType\": 1,\r\n    \"Id\": \"555555517\",\r\n    \"FullName\": \"Kevin Escobar Miranda\",\r\n    \"Password\": \"kevin17\",\r\n    \"Genre\": 1,\r\n    \"MobilePhone\": \"88888888\",\r\n    \"Phone\": \"88888888\",\r\n    \"Province\": \"1\",\r\n    \"Canton\": \"1\",\r\n    \"District\": \"1\",\r\n    \"DeliveryAddress\": \"Cartago\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[public] - Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"kevin15\",\r\n  \"password\": \"kevin156\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "[Admin,User] - GetProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiIzM2Y4MmYxNi1kODNiLTRiMzEtODQ2ZC0yNmMzMjIwYzBmYmYiLCJpYXQiOiIxMS85LzIwMjIgNDoxODowOSBBTSIsIlVzZXIiOiJ7XCJJZFwiOlwiNTU1NTU1NTE1MVwiLFwiVXNlclR5cGVcIjoxLFwiVXNlcm5hbWVcIjpcImtldmluMTVcIixcIk5hbWVcIjpcIktldmluIEVzY29iYXIgTWlyYW5kYVwiLFwiSWRUeXBlXCI6MSxcIkdlbnJlXCI6MSxcIkVtYWlsXCI6XCJrZXNjb2Jhcm05NFxcdTAwMkIxNUBnbWFpbC5jb21cIixcIk1vYmlsZVBob25lXCI6XCIxMjM0NTY3OFwiLFwiUGhvbmVcIjpcIjg4ODg4ODg4XCIsXCJJbnRlcmVzdEdyb3VwXCI6XCIwMDBcIixcIkRlbGl2ZXJ5QWRkcmVzc1wiOlwiQ2FydGFnb1wiLFwiTWlhbWlBZGRyZXNzXCI6XCIyNzQ1IE5XIDgybmQgQXZlIERvcmFsLCBGTCAzMzE5OC0xMDcwIFVuaXRlZCBTdGF0ZXNcIixcIlBvc3RhbEFkZHJlc3NcIjpcIlAuTy5Cb3ggMDI1MzY5XFxyXFxuTWlhbWksIEZsb3JpZGEgMzMxMDJcXHJcXG5VU0FcIixcIkNvbnRhY3RUeXBlXCI6MCxcIkFsbG93Tm90aWZpY2F0aW9uc1wiOjAsXCJQZW5kaW5nQW1vdW50XCI6MC4wMDAwLFwiSUtOdW1iZXJcIjpcIjMzMjlcIixcIlJlc3VsdFwiOjB9IiwiZXhwIjoxNjY3OTY4MDg5LCJpc3MiOiJKV1RBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkpXVFNlcnZpY2VQb3N0bWFuQ2xpZW50In0.QueHZKfkIwbWS2nxqVPfjkGmHfNYTnewzTNlSlmYhCs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/profile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Admin, User] - EditProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiIzM2Y4MmYxNi1kODNiLTRiMzEtODQ2ZC0yNmMzMjIwYzBmYmYiLCJpYXQiOiIxMS85LzIwMjIgNDoxODowOSBBTSIsIlVzZXIiOiJ7XCJJZFwiOlwiNTU1NTU1NTE1MVwiLFwiVXNlclR5cGVcIjoxLFwiVXNlcm5hbWVcIjpcImtldmluMTVcIixcIk5hbWVcIjpcIktldmluIEVzY29iYXIgTWlyYW5kYVwiLFwiSWRUeXBlXCI6MSxcIkdlbnJlXCI6MSxcIkVtYWlsXCI6XCJrZXNjb2Jhcm05NFxcdTAwMkIxNUBnbWFpbC5jb21cIixcIk1vYmlsZVBob25lXCI6XCIxMjM0NTY3OFwiLFwiUGhvbmVcIjpcIjg4ODg4ODg4XCIsXCJJbnRlcmVzdEdyb3VwXCI6XCIwMDBcIixcIkRlbGl2ZXJ5QWRkcmVzc1wiOlwiQ2FydGFnb1wiLFwiTWlhbWlBZGRyZXNzXCI6XCIyNzQ1IE5XIDgybmQgQXZlIERvcmFsLCBGTCAzMzE5OC0xMDcwIFVuaXRlZCBTdGF0ZXNcIixcIlBvc3RhbEFkZHJlc3NcIjpcIlAuTy5Cb3ggMDI1MzY5XFxyXFxuTWlhbWksIEZsb3JpZGEgMzMxMDJcXHJcXG5VU0FcIixcIkNvbnRhY3RUeXBlXCI6MCxcIkFsbG93Tm90aWZpY2F0aW9uc1wiOjAsXCJQZW5kaW5nQW1vdW50XCI6MC4wMDAwLFwiSUtOdW1iZXJcIjpcIjMzMjlcIixcIlJlc3VsdFwiOjB9IiwiZXhwIjoxNjY3OTY4MDg5LCJpc3MiOiJKV1RBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkpXVFNlcnZpY2VQb3N0bWFuQ2xpZW50In0.QueHZKfkIwbWS2nxqVPfjkGmHfNYTnewzTNlSlmYhCs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Kevin\",\r\n  \"lastName\": \"Escobar\",\r\n  \"secondLastName\": \"Miranda test\",\r\n  \"idType\": 1,\r\n  \"identification\": \"5555555151\",\r\n  \"email\": \"kescobarm94+15@gmail.com\",\r\n  \"phone\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/profile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Password",
+			"item": [
+				{
+					"name": "[Admin,User] - ResetPassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI5NmE5OGVjYy1iODhlLTQ3MGYtOWQyYy1hMDhiZWY4ZTgwMWYiLCJpYXQiOiIxMC8yMS8yMDIyIDM6MzI6NDEgQU0iLCJVc2VyIjoie1wiSWRcIjpcIjU1NTU1NTUxNTFcIixcIlVzZXJUeXBlXCI6MSxcIlVzZXJuYW1lXCI6XCJrZXZpbjE1XCIsXCJOYW1lXCI6XCJLZXZpbiBFc2NvYmFyIE1pcmFuZGFcIixcIklkVHlwZVwiOjEsXCJHZW5yZVwiOjEsXCJFbWFpbFwiOlwia2VzY29iYXJtOTRcXHUwMDJCMTVAZ21haWwuY29tXCIsXCJNb2JpbGVQaG9uZVwiOlwiMTIzNDU2NzhcIixcIlBob25lXCI6XCI4ODg4ODg4OFwiLFwiSW50ZXJlc3RHcm91cFwiOlwiMDAwXCIsXCJEZWxpdmVyeUFkZHJlc3NcIjpcIkNhcnRhZ29cIixcIk1pYW1pQWRkcmVzc1wiOlwiMjc0NSBOVyA4Mm5kIEF2ZSBEb3JhbCwgRkwgMzMxOTgtMTA3MCBVbml0ZWQgU3RhdGVzXCIsXCJQb3N0YWxBZGRyZXNzXCI6XCJQLk8uQm94IDAyNTM2OVxcclxcbk1pYW1pLCBGbG9yaWRhIDMzMTAyXFxyXFxuVVNBXCIsXCJDb250YWN0VHlwZVwiOjAsXCJBbGxvd05vdGlmaWNhdGlvbnNcIjowLFwiUGVuZGluZ0Ftb3VudFwiOjAuMDAwMCxcIklLTnVtYmVyXCI6XCIzMzI5XCIsXCJSZXN1bHRcIjowfSIsImV4cCI6MTY2NjMyMzc2MSwiaXNzIjoiSldUQXV0aGVudGljYXRpb25TZXJ2ZXIiLCJhdWQiOiJKV1RTZXJ2aWNlUG9zdG1hbkNsaWVudCJ9.YdiXXXeMcejUBzZCkjKZZigdzQqBAT0XEbwVSTIYDWs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/password",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Admin,User] - ChangePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI5NmE5OGVjYy1iODhlLTQ3MGYtOWQyYy1hMDhiZWY4ZTgwMWYiLCJpYXQiOiIxMC8yMS8yMDIyIDM6MzI6NDEgQU0iLCJVc2VyIjoie1wiSWRcIjpcIjU1NTU1NTUxNTFcIixcIlVzZXJUeXBlXCI6MSxcIlVzZXJuYW1lXCI6XCJrZXZpbjE1XCIsXCJOYW1lXCI6XCJLZXZpbiBFc2NvYmFyIE1pcmFuZGFcIixcIklkVHlwZVwiOjEsXCJHZW5yZVwiOjEsXCJFbWFpbFwiOlwia2VzY29iYXJtOTRcXHUwMDJCMTVAZ21haWwuY29tXCIsXCJNb2JpbGVQaG9uZVwiOlwiMTIzNDU2NzhcIixcIlBob25lXCI6XCI4ODg4ODg4OFwiLFwiSW50ZXJlc3RHcm91cFwiOlwiMDAwXCIsXCJEZWxpdmVyeUFkZHJlc3NcIjpcIkNhcnRhZ29cIixcIk1pYW1pQWRkcmVzc1wiOlwiMjc0NSBOVyA4Mm5kIEF2ZSBEb3JhbCwgRkwgMzMxOTgtMTA3MCBVbml0ZWQgU3RhdGVzXCIsXCJQb3N0YWxBZGRyZXNzXCI6XCJQLk8uQm94IDAyNTM2OVxcclxcbk1pYW1pLCBGbG9yaWRhIDMzMTAyXFxyXFxuVVNBXCIsXCJDb250YWN0VHlwZVwiOjAsXCJBbGxvd05vdGlmaWNhdGlvbnNcIjowLFwiUGVuZGluZ0Ftb3VudFwiOjAuMDAwMCxcIklLTnVtYmVyXCI6XCIzMzI5XCIsXCJSZXN1bHRcIjowfSIsImV4cCI6MTY2NjMyMzc2MSwiaXNzIjoiSldUQXV0aGVudGljYXRpb25TZXJ2ZXIiLCJhdWQiOiJKV1RTZXJ2aWNlUG9zdG1hbkNsaWVudCJ9.YdiXXXeMcejUBzZCkjKZZigdzQqBAT0XEbwVSTIYDWs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"oldPassword\": \"kevin155\",\r\n  \"newPassword\": \"kevin156\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/password/change",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"password",
+								"change"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "[Admin] - GetUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI3YTJjNzNlMS00NjJlLTQ5ZjEtOGNlMi1kMzU1MWNmZGYyMzgiLCJpYXQiOiIxMS85LzIwMjIgNDozMTozOCBBTSIsIlVzZXIiOiJ7XCJJZFwiOlwiNTU1NTU1NTE1MVwiLFwiVXNlclR5cGVcIjoxLFwiVXNlcm5hbWVcIjpcImtldmluMTVcIixcIk5hbWVcIjpcIktldmluIEVzY29iYXIgTWlyYW5kYSB0ZXN0XCIsXCJJZFR5cGVcIjoxLFwiR2VucmVcIjoxLFwiRW1haWxcIjpcImtlc2NvYmFybTk0XFx1MDAyQjE1QGdtYWlsLmNvbVwiLFwiTW9iaWxlUGhvbmVcIjpcIjEyMzQ1Njc4XCIsXCJQaG9uZVwiOlwiODg4ODg4ODhcIixcIkludGVyZXN0R3JvdXBcIjpcIjAwMFwiLFwiRGVsaXZlcnlBZGRyZXNzXCI6XCJDYXJ0YWdvXCIsXCJNaWFtaUFkZHJlc3NcIjpcIjI3NDUgTlcgODJuZCBBdmUgRG9yYWwsIEZMIDMzMTk4LTEwNzAgVW5pdGVkIFN0YXRlc1wiLFwiUG9zdGFsQWRkcmVzc1wiOlwiUC5PLkJveCAwMjUzNjlcXHJcXG5NaWFtaSwgRmxvcmlkYSAzMzEwMlxcclxcblVTQVwiLFwiQ29udGFjdFR5cGVcIjowLFwiQWxsb3dOb3RpZmljYXRpb25zXCI6MCxcIlBlbmRpbmdBbW91bnRcIjowLjAwMDAsXCJJS051bWJlclwiOlwiMzMyOVwiLFwiUmVzdWx0XCI6MH0iLCJleHAiOjE2Njc5Njg4OTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.H19PuBnyz9ooG8vcfX5Kh3fK1eTZvKxDAiqftCbkLKI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/132",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"132"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Admin] - GetUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiIzM2Y4MmYxNi1kODNiLTRiMzEtODQ2ZC0yNmMzMjIwYzBmYmYiLCJpYXQiOiIxMS85LzIwMjIgNDoxODowOSBBTSIsIlVzZXIiOiJ7XCJJZFwiOlwiNTU1NTU1NTE1MVwiLFwiVXNlclR5cGVcIjoxLFwiVXNlcm5hbWVcIjpcImtldmluMTVcIixcIk5hbWVcIjpcIktldmluIEVzY29iYXIgTWlyYW5kYVwiLFwiSWRUeXBlXCI6MSxcIkdlbnJlXCI6MSxcIkVtYWlsXCI6XCJrZXNjb2Jhcm05NFxcdTAwMkIxNUBnbWFpbC5jb21cIixcIk1vYmlsZVBob25lXCI6XCIxMjM0NTY3OFwiLFwiUGhvbmVcIjpcIjg4ODg4ODg4XCIsXCJJbnRlcmVzdEdyb3VwXCI6XCIwMDBcIixcIkRlbGl2ZXJ5QWRkcmVzc1wiOlwiQ2FydGFnb1wiLFwiTWlhbWlBZGRyZXNzXCI6XCIyNzQ1IE5XIDgybmQgQXZlIERvcmFsLCBGTCAzMzE5OC0xMDcwIFVuaXRlZCBTdGF0ZXNcIixcIlBvc3RhbEFkZHJlc3NcIjpcIlAuTy5Cb3ggMDI1MzY5XFxyXFxuTWlhbWksIEZsb3JpZGEgMzMxMDJcXHJcXG5VU0FcIixcIkNvbnRhY3RUeXBlXCI6MCxcIkFsbG93Tm90aWZpY2F0aW9uc1wiOjAsXCJQZW5kaW5nQW1vdW50XCI6MC4wMDAwLFwiSUtOdW1iZXJcIjpcIjMzMjlcIixcIlJlc3VsdFwiOjB9IiwiZXhwIjoxNjY3OTY4MDg5LCJpc3MiOiJKV1RBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkpXVFNlcnZpY2VQb3N0bWFuQ2xpZW50In0.QueHZKfkIwbWS2nxqVPfjkGmHfNYTnewzTNlSlmYhCs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/user/3330",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"user",
+								"3330"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Admin] - EditUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI3YTJjNzNlMS00NjJlLTQ5ZjEtOGNlMi1kMzU1MWNmZGYyMzgiLCJpYXQiOiIxMS85LzIwMjIgNDozMTozOCBBTSIsIlVzZXIiOiJ7XCJJZFwiOlwiNTU1NTU1NTE1MVwiLFwiVXNlclR5cGVcIjoxLFwiVXNlcm5hbWVcIjpcImtldmluMTVcIixcIk5hbWVcIjpcIktldmluIEVzY29iYXIgTWlyYW5kYSB0ZXN0XCIsXCJJZFR5cGVcIjoxLFwiR2VucmVcIjoxLFwiRW1haWxcIjpcImtlc2NvYmFybTk0XFx1MDAyQjE1QGdtYWlsLmNvbVwiLFwiTW9iaWxlUGhvbmVcIjpcIjEyMzQ1Njc4XCIsXCJQaG9uZVwiOlwiODg4ODg4ODhcIixcIkludGVyZXN0R3JvdXBcIjpcIjAwMFwiLFwiRGVsaXZlcnlBZGRyZXNzXCI6XCJDYXJ0YWdvXCIsXCJNaWFtaUFkZHJlc3NcIjpcIjI3NDUgTlcgODJuZCBBdmUgRG9yYWwsIEZMIDMzMTk4LTEwNzAgVW5pdGVkIFN0YXRlc1wiLFwiUG9zdGFsQWRkcmVzc1wiOlwiUC5PLkJveCAwMjUzNjlcXHJcXG5NaWFtaSwgRmxvcmlkYSAzMzEwMlxcclxcblVTQVwiLFwiQ29udGFjdFR5cGVcIjowLFwiQWxsb3dOb3RpZmljYXRpb25zXCI6MCxcIlBlbmRpbmdBbW91bnRcIjowLjAwMDAsXCJJS051bWJlclwiOlwiMzMyOVwiLFwiUmVzdWx0XCI6MH0iLCJleHAiOjE2Njc5Njg4OTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.H19PuBnyz9ooG8vcfX5Kh3fK1eTZvKxDAiqftCbkLKI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Kevin\",\r\n  \"lastName\": \"Escobar\",\r\n  \"secondLastName\": \"Miranda test 2\",\r\n  \"idType\": 1,\r\n  \"identification\": \"5555555151\",\r\n  \"email\": \"kescobarm94+15@gmail.com\",\r\n  \"phone\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/3330",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"3330"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Admin] - DeleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI3YTJjNzNlMS00NjJlLTQ5ZjEtOGNlMi1kMzU1MWNmZGYyMzgiLCJpYXQiOiIxMS85LzIwMjIgNDozMTozOCBBTSIsIlVzZXIiOiJ7XCJJZFwiOlwiNTU1NTU1NTE1MVwiLFwiVXNlclR5cGVcIjoxLFwiVXNlcm5hbWVcIjpcImtldmluMTVcIixcIk5hbWVcIjpcIktldmluIEVzY29iYXIgTWlyYW5kYSB0ZXN0XCIsXCJJZFR5cGVcIjoxLFwiR2VucmVcIjoxLFwiRW1haWxcIjpcImtlc2NvYmFybTk0XFx1MDAyQjE1QGdtYWlsLmNvbVwiLFwiTW9iaWxlUGhvbmVcIjpcIjEyMzQ1Njc4XCIsXCJQaG9uZVwiOlwiODg4ODg4ODhcIixcIkludGVyZXN0R3JvdXBcIjpcIjAwMFwiLFwiRGVsaXZlcnlBZGRyZXNzXCI6XCJDYXJ0YWdvXCIsXCJNaWFtaUFkZHJlc3NcIjpcIjI3NDUgTlcgODJuZCBBdmUgRG9yYWwsIEZMIDMzMTk4LTEwNzAgVW5pdGVkIFN0YXRlc1wiLFwiUG9zdGFsQWRkcmVzc1wiOlwiUC5PLkJveCAwMjUzNjlcXHJcXG5NaWFtaSwgRmxvcmlkYSAzMzEwMlxcclxcblVTQVwiLFwiQ29udGFjdFR5cGVcIjowLFwiQWxsb3dOb3RpZmljYXRpb25zXCI6MCxcIlBlbmRpbmdBbW91bnRcIjowLjAwMDAsXCJJS051bWJlclwiOlwiMzMyOVwiLFwiUmVzdWx0XCI6MH0iLCJleHAiOjE2Njc5Njg4OTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.H19PuBnyz9ooG8vcfX5Kh3fK1eTZvKxDAiqftCbkLKI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/3325",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"3325"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
