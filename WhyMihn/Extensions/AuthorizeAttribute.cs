@@ -22,7 +22,7 @@ namespace API.Extensions
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadJwtToken(token);
 
-            Enum.TryParse(user?.UserType.ToString(), out Role currentUserType);
+            Enum.TryParse(user?.RoleId.ToString(), out Role currentUserType);
 
             if (jsonToken.ValidTo < DateTime.UtcNow || user == null || (!currentUserType.Equals(Role.ADMIN) && _roles.Any() && !_roles.Any(c => c.Equals(currentUserType))))
             {

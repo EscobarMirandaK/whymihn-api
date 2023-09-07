@@ -3,6 +3,7 @@ using API.Interface;
 using API.Models.Login;
 using API.Models.Register;
 using Microsoft.Data.SqlClient;
+using MySqlConnector;
 
 namespace API.Repository
 {
@@ -19,12 +20,12 @@ namespace API.Repository
         {
             try
             {
-                SqlParameter[] parameters =
+                MySqlParameter[] parameters =
                 {
-                    new SqlParameter("UserName", loginRequest.Email),
-                    new SqlParameter("Password", loginRequest.Password)
+                    new MySqlParameter("sEmail", loginRequest.Email),
+                    new MySqlParameter("sPassword", loginRequest.Password)
                 };
-                var results = await this.databaseHelper.ExecuteStoredProcedure<User>("SP_WHYMIHN_API_LOGIN", parameters);
+                var results = await this.databaseHelper.ExecuteStoredProcedure<User>("SP_WHYMIHN_LOGIN", parameters);
                 return results.FirstOrDefault();
             }
             catch

@@ -47,7 +47,7 @@ namespace API.Extensions
 
             client.Send(mailObj);
 
-            System.Diagnostics.Debug.WriteLine("[WELCOME] - Email sent to user #" + user.IKNumber);
+            System.Diagnostics.Debug.WriteLine("[WELCOME] - Email sent to user #" + user.Email);
             ////logger.Info("[WELCOME] - Email sent to user #" + user.IKNumber);
         }
 
@@ -83,7 +83,7 @@ namespace API.Extensions
 
             client.Send(mailObj);
 
-            System.Diagnostics.Debug.WriteLine("[UPDATE INFO] - Email sent to user #" + user.IKNumber);
+            System.Diagnostics.Debug.WriteLine("[UPDATE INFO] - Email sent to user #" + user.Email);
             ////logger.Info("[UPDATE INFO] - Email sent to user #" + user.IKNumber);
         }
 
@@ -131,8 +131,8 @@ namespace API.Extensions
 
             body += "<b>Nombre completo:</b> " + user.Name + "<br>";
             body += "<b>Email:</b> " + user.Email + "<br>";
-            body += "<b>Teléfono:</b> " + user.Phone + "<br>";
-            body += "<b>Dirección:</b> " + user.DeliveryAddress + "<br>";
+            //body += "<b>Teléfono:</b> " + user.Phone + "<br>";
+            //body += "<b>Dirección:</b> " + user.DeliveryAddress + "<br>";
 
             MailMessage mailObj = new MailMessage();
             mailObj.IsBodyHtml = true;
@@ -176,7 +176,7 @@ namespace API.Extensions
                     string body = "<br><b>¡Importante!</b><br><b>¡Por favor actualizar sus datos!</b><br><br>";
                     body += "Con el fin de mejorar nuestro sistema de notificaciones y agilizar nuestro servicio de entregas a domicilio, le solicitamos que por favor actualice sus datos ingresando en el siguiente formulario:  <br> <br>";
 
-                    body += "<a href='https://www.WHYMIHNcr.com/Edit?ref=" + user.IKNumber + "' target='_blank'>Click aquí para actualizar sus datos</a><br><br>";
+                    body += "<a href='https://www.WHYMIHNcr.com/Edit?ref=" + user.Email + "' target='_blank'>Click aquí para actualizar sus datos</a><br><br>";
 
                     body += "Gracias por seguir escogiéndonos. Continuamos mejorando para brindarles siempre el mejor servicio.<br>";
 
@@ -190,7 +190,7 @@ namespace API.Extensions
                     mailObj.Body = body;
 
                     client.Send(mailObj);
-                    System.Diagnostics.Debug.WriteLine("[NEWS] - Email sent to user #" + user.IKNumber);
+                    System.Diagnostics.Debug.WriteLine("[NEWS] - Email sent to user #" + user.Email);
                     ////logger.Info("[NEWS] - Email sent to user #" + user.IKNumber);
                 }
             }
@@ -218,7 +218,7 @@ namespace API.Extensions
                     string body = "<br><b>¡Importante!</b><br><b>¡Hemos actualizado nuestros términos y condiciones!</b><br><br>";
                     body += "Con el fin de mejorar nuestro sistema de notificaciones y agilizar nuestro servicio de entregas a domicilio, le solicitamos que por favor acepte los términos y condiciones ingresando en el siguiente formulario:  <br> <br>";
 
-                    body += "<a href='https://www.WHYMIHNcr.com/Edit?ref=" + user.IKNumber + "' target='_blank'>Click aquí para aceptar los términos y condiciones</a><br><br>";
+                    body += "<a href='https://www.WHYMIHNcr.com/Edit?ref=" + user.Email + "' target='_blank'>Click aquí para aceptar los términos y condiciones</a><br><br>";
 
                     body += "­­¡Gracias por la confianza, seguiremos ofreciendo el mejor servicio!<br>";
 
@@ -232,7 +232,7 @@ namespace API.Extensions
                     mailObj.Body = body;
 
                     client.Send(mailObj);
-                    System.Diagnostics.Debug.WriteLine("[TERMS] - Email sent to user #" + user.IKNumber);
+                    System.Diagnostics.Debug.WriteLine("[TERMS] - Email sent to user #" + user.Email);
                     ////logger.Info("[TERMS] - Email sent to user #" + user.IKNumber);
                 }
             }
@@ -318,24 +318,24 @@ namespace API.Extensions
 
         private static string CreateUserInfoEmailBody(User user, string body)
         {
-            string paddedClientID = user.IKNumber.ToString();
-            paddedClientID = paddedClientID.PadLeft(3, '0');
+            ////string paddedClientID = user.IKNumber.ToString();
+            ////paddedClientID = paddedClientID.PadLeft(3, '0');
 
-            body += "<b>Full name:</b> BIO - " + user.Name + " <br>";
-            body += "<b>Address line 1:</b> 8455 NW 68TH ST <br>";
-            body += "<b>Address line 2:</b> Cliente " + paddedClientID + "<br>";
-            body += "<b>City:</b> DORAL <br>";
-            body += "<b>State/Province/Region:</b> FLORIDA <br>";
-            body += "<b>ZIP:</b> 33166 <br>";
-            body += "<b>Country:</b> United States <br>";
-            body += "<b>Phone number:</b> 786-615-2467 <br><br>";
+            ////body += "<b>Full name:</b> BIO - " + user.Name + " <br>";
+            ////body += "<b>Address line 1:</b> 8455 NW 68TH ST <br>";
+            ////body += "<b>Address line 2:</b> Cliente " + paddedClientID + "<br>";
+            ////body += "<b>City:</b> DORAL <br>";
+            ////body += "<b>State/Province/Region:</b> FLORIDA <br>";
+            ////body += "<b>ZIP:</b> 33166 <br>";
+            ////body += "<b>Country:</b> United States <br>";
+            ////body += "<b>Phone number:</b> 786-615-2467 <br><br>";
 
-            body += "<b>Aclaraciones:</b>";
-            body += "<ul>";
-            body += "<li>Asegurarse de escribir el nombre tal cual aparece en la información brindada anteriormente.</li>";
-            body += "<li>El número que aparece en el address line 2 corresponde a su número de cliente.</li>";
-            body += "<li>Asegurarse de utilizar nombre y dos apellidos.</li>";
-            body += "</ul>";
+            ////body += "<b>Aclaraciones:</b>";
+            ////body += "<ul>";
+            ////body += "<li>Asegurarse de escribir el nombre tal cual aparece en la información brindada anteriormente.</li>";
+            ////body += "<li>El número que aparece en el address line 2 corresponde a su número de cliente.</li>";
+            ////body += "<li>Asegurarse de utilizar nombre y dos apellidos.</li>";
+            ////body += "</ul>";
 
             return body;
         }

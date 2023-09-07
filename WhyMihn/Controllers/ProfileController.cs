@@ -47,7 +47,7 @@ namespace API.Controllers
 
             if (loggedUser != null)
             {
-                var result = await this.profileRepository.PutProfile(profileRequest, loggedUser.IKNumber);
+                var result = await this.profileRepository.PutProfile(profileRequest, loggedUser.Email);
                 
                 if (result != null && result.Result == 0)
                 {

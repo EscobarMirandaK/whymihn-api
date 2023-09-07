@@ -75,7 +75,7 @@ namespace API.Controllers
         {
             var identity = HttpContext.User.Identity as System.Security.Claims.ClaimsIdentity;
             var loggedUser = PrincipalExtensions.GetUser(new System.Security.Claims.ClaimsPrincipal(identity));
-            Enum.TryParse(loggedUser?.UserType.ToString(), out Role currentUserType);
+            Enum.TryParse(loggedUser?.RoleId.ToString(), out Role currentUserType);
             var response = new BaseResponse(false);
 
             if (loggedUser != null)
@@ -85,7 +85,7 @@ namespace API.Controllers
                 switch (currentUserType)
                 {
                     case Role.USER:
-                        result = await this.passwordRepository.ChangePassword(changePasswordRequest, loggedUser.IKNumber);
+                        result = await this.passwordRepository.ChangePassword(changePasswordRequest, loggedUser.Email);
                         break;
                     case Role.ADMIN:
 
