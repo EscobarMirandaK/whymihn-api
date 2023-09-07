@@ -22,6 +22,7 @@ builder.Services.AddTransient<IProfileRepository, ProfileRepository>();
 builder.Services.AddTransient<IPasswordRepository, PasswordRepository>();
 builder.Services.AddTransient<IUsersRepository, UsersRepository>();
 builder.Services.AddTransient<IDashboardRepository, DashboardRepository>();
+builder.Services.AddTransient<ITenantRepository, TenantRepository>();
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
 builder.Services.AddTransient<IEmailHelper, EmailHelper>();
 builder.Services.AddControllers();

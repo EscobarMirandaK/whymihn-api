@@ -24,7 +24,10 @@ namespace API.Extensions
             {
                 command.CommandText = storedProcedure;
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddRange(parameters);
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
 
                 _dbContext.Database.OpenConnection();
 
