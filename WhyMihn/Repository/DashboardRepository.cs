@@ -20,9 +20,9 @@ namespace API.Repository
             {
                 SqlParameter[] parameters =
                 {
-                    new SqlParameter("UserIDNumber", user.Id)
+                    new SqlParameter("UserIDNumber", user.Email)
                 };
-                var results = await this.databaseHelper.ExecuteStoredProcedure<Dashboard>("SP_WHYMIHN_API_GET_DASHBOARD_BY_ID", parameters);
+                var results = await this.databaseHelper.ExecuteStoredProcedure<Dashboard>("SP_WHYMIHN_API_GET_DASHBOARD_BY_EMAIL", parameters);
                 return results.FirstOrDefault();
             }
             catch

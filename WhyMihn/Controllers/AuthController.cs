@@ -37,8 +37,7 @@ namespace API.Controllers
 
                 if (user != null && user.Result == 0)
                 {
-                    Enum.TryParse(user?.UserType.ToString(), out Role currentUserType);
-                    user.Admin = currentUserType == Role.ADMIN;
+                    Enum.TryParse(user?.RoleId.ToString(), out Role currentUserType);
                     JwtSecurityToken token = GetToken(user);
                     var response = new LoginResponse { AccessToken = new JwtSecurityTokenHandler().WriteToken(token) };
                     

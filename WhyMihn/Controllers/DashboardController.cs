@@ -23,13 +23,13 @@ namespace API.Controllers
         {
             var identity = HttpContext.User.Identity as System.Security.Claims.ClaimsIdentity;
             var loggedUser = PrincipalExtensions.GetUser(new System.Security.Claims.ClaimsPrincipal(identity));
-            Enum.TryParse(loggedUser?.UserType.ToString(), out Role currentUserType);
+            Enum.TryParse(loggedUser?.RoleId.ToString(), out Role currentUserType);
 
             var response = new DashboardResponse(false);
 
             if (loggedUser != null)
             {
-                response.IdClient = loggedUser.IKNumber;
+                response.IdClient = loggedUser.Email;
                 response.Name = loggedUser.Name;
                 response.Admin = currentUserType == Role.ADMIN;
                 return response;
