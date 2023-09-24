@@ -25,7 +25,7 @@ namespace API.Repository
                     new MySqlParameter("sEmail", loginRequest.Email),
                     new MySqlParameter("sPassword", loginRequest.Password)
                 };
-                var results = await this.databaseHelper.ExecuteStoredProcedure<User>("SP_WHYMIHN_LOGIN", parameters);
+                var results = await this.databaseHelper.ExecuteStoredProcedure<User>("SP_WHYMIHN_API_LOGIN", parameters);
                 return results.FirstOrDefault();
             }
             catch

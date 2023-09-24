@@ -1,10 +1,6 @@
 ﻿using API.Entities;
-using API.Extensions;
 using API.Interface;
-using API.Models.Base;
 using API.Models.Tenant;
-using API.Models.Users;
-using Microsoft.Data.SqlClient;
 using MySqlConnector;
 
 namespace API.Repository
