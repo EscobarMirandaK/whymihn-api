@@ -21,9 +21,9 @@ namespace API.Controllers
         }
 
         [Authorize(Role.ADMIN)]
-        [Route("GetParameter/{parameterId}/{tableName}/{tenantId}/{clientId}")]
+        [Route("GetParameter/{tenantId}/{clientId}/{parameterId}/{tableName}/")]
         [HttpGet]
-        public async Task<ActionResult<Parameter>> GetParameter(string parameterId,string tableName, string tenantId, string clientId)
+        public async Task<ActionResult<List<Parameter>>> GetParameter(string parameterId,string tableName, string tenantId, string clientId)
         {   
             return await this.parameterRepository.GetParameter(parameterId,tableName,tenantId,clientId);
         }

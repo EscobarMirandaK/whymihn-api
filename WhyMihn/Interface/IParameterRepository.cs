@@ -8,7 +8,7 @@ namespace API.Interface
     public interface IParameterRepository
     {
 
-        public Task<Parameter> GetParameter(string parameterId, string tableName, string tenantId, string clientId);
+        public Task<List<Parameter>> GetParameter(string parameterId, string tableName, string tenantId, string clientId);
 
         public Task<ActionResult<Base>> AddParameter(AddParameterRequest request);
 

@@ -5,6 +5,7 @@ using API.Models.Parameter;
 using API.Models.Password;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using MySqlConnector;
 
 namespace API.Repository
 {
@@ -16,60 +17,60 @@ namespace API.Repository
         {
             this.databaseHelper = databaseHelper;
         }
-        public async Task<Parameter> GetParameter(string parameterId, string tableName, string tenantId, string clientId)
+        public async Task<List<Parameter>> GetParameter(string parameterId, string tableName, string tenantId, string clientId)
         {
 
-            SqlParameter[] parameters =
+            MySqlParameter[] parameters =
                 {
-                    new SqlParameter("p_tenant_id", tenantId),
-                    new SqlParameter("p_client_id", clientId), // 1 as default page to reuse the stored procedure
-                    new SqlParameter("p_parameter_id", parameterId),
-                    new SqlParameter("p_table_name", tableName)
+                    new MySqlParameter("sTenantId", tenantId),
+                    new MySqlParameter("sClientId", clientId), // 1 as default page to reuse the stored procedure
+                    new MySqlParameter("sParameterId", parameterId),
+                    new MySqlParameter("sTableName", tableName)
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedureWithPagination<Parameter>("SP_WHYMINH_Get_Parameter", parameters);
-            return results.Results.FirstOrDefault();
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Parameter>("SP_WHYMINH_API_GET_PARAMETER", parameters);
+            return results;
 
         }
 
       public  async Task<ActionResult<Base>> AddParameter(AddParameterRequest request)
         {
-            SqlParameter[] parameters =
+            MySqlParameter[] parameters =
                 {
-                    new SqlParameter("p_tenant_id", ""),
-                    new SqlParameter("p_client_id", ""),
-                    new SqlParameter("p_parameter_id", ""),
-                    new SqlParameter("p_table_name", ""),
-                    new SqlParameter("p_parameter_value", "")
+                    new MySqlParameter("sTenantId", request.TenantId),
+                    new MySqlParameter("sClientId", request.ClientId),
+                    new MySqlParameter("sParameterId", request.ParameterId),
+                    new MySqlParameter("sTableName", request.TableName),
+                    new MySqlParameter("sParameterValue", request.ParameterValue)
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_Add_Parameter", parameters);
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_API_ADD_PARAMETER", parameters);
             return results.FirstOrDefault();
         }
 
         public async Task<ActionResult<Base>> UpdateParameter(UpdateParameterRequest request)
         {
-            SqlParameter[] parameters =
+            MySqlParameter[] parameters =
                 {
-                    new SqlParameter("p_tenant_id", request.TenantId),
-                    new SqlParameter("p_client_id", request.ClientId),
-                    new SqlParameter("p_parameter_id", request.ParameterId),
-                    new SqlParameter("p_table_name", request.TableName),
-                    new SqlParameter("p_parameter_value", request.ParameterValue)
+                    new MySqlParameter("sTenantId", request.TenantId),
+                    new MySqlParameter("sClientId", request.ClientId),
+                    new MySqlParameter("sParameterId", request.ParameterId),
+                    new MySqlParameter("sTableName", request.TableName),
+                    new MySqlParameter("sParameterValue", request.ParameterValue)
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_Update_Parameter", parameters);
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_API_UPDATE_PARAMETER", parameters);
             return results.FirstOrDefault();
 
         }
 
         public async Task<ActionResult<Base>> DeleteParameter(string parameterId, string tableName, string tenantId, string clientId)
         {
-            SqlParameter[] parameters =
+            MySqlParameter[] parameters =
                 {
-                    new SqlParameter("p_tenant_id", tenantId),
-                    new SqlParameter("p_client_id", clientId), 
-                    new SqlParameter("p_parameter_id", parameterId),
-                    new SqlParameter("p_table_name", tableName)
+                    new MySqlParameter("sTenantId", tenantId),
+                    new MySqlParameter("sClientId", clientId), 
+                    new MySqlParameter("sParameterId", parameterId),
+                    new MySqlParameter("sTableName", tableName)
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_Delete_Parameter", parameters);
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_API_DELETE_PARAMETER", parameters);
             return results.FirstOrDefault();
         }
     }
