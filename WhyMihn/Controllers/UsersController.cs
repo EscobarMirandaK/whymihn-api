@@ -21,11 +21,11 @@ namespace API.Controllers
         }
 
         [Authorize(Role.ADMIN)]
-        [Route("user/{IKNumber}")]
+        [Route("users")]
         [HttpGet]
-        public async Task<ActionResult<User>> Get(string IKNumber)
+        public async Task<ActionResult<List<User>>> GetUsers()
         {
-            return await this.usersRepository.GetUser(IKNumber);
+            return await this.usersRepository.GetUsers();
         }
     }
 }

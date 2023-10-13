@@ -18,7 +18,7 @@ namespace API.Repository
             this.configuration = configuration;
         }
 
-        public async Task<BasePaginationResponse<User>> GetUsers(int pageNumber = 1)
+        public async Task<List<User>> GetUsers(int pageNumber = 1)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace API.Repository
                     new SqlParameter("PageNumber", pageNumber),
                     new SqlParameter("PageSize", int.Parse(configuration[Pagination.AllRecords]))
                 };
-                var results = await this.databaseHelper.ExecuteStoredProcedureWithPagination<User>("SP_WHYMIHN_API_GET_USERS", parameters);
+                var results = await this.databaseHelper.ExecuteStoredProcedure<User>("SP_WHYMIHN_API_GET_USERS", parameters);
                 return results;
             }
             catch

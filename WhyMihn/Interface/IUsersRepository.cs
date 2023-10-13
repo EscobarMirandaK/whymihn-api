@@ -6,7 +6,7 @@ namespace API.Interface
 {
     public interface IUsersRepository
     {
-        public Task<BasePaginationResponse<User>> GetUsers(int pageNumber = 1);
+        public Task<List<User>> GetUsers(int pageNumber = 1);
 
         public Task<User> GetUser(string ikNumber);
 
