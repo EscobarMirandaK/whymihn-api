@@ -9,9 +9,9 @@ namespace API.Interface
     public interface IMenuRepository
     {
 
-        public  Task<ActionResult<Menu>> GetMenu(string menuId, string tenantId, string clientId);
+        public Task<ActionResult<List<Menu>>> GetMenu(string menuId, string tenantId, string clientId);
 
-        public  Task<ActionResult<Menu>> GetMenuWithParent(string menuId, string tenantId, string clientId, string parentId);
+        public Task<ActionResult<List<Menu>>> GetMenuWithParent(string menuId, string tenantId, string clientId, string parentId);
 
         public  Task<ActionResult<Base>> AddMenu(AddMenuRequest addParameterRequest);
 

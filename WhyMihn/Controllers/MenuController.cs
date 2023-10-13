@@ -21,7 +21,7 @@ namespace API.Controllers
         [Authorize(Role.ADMIN)]
         [Route("GetMenu/{menuId}/{tenantId}/{clientId}")]
         [HttpGet]
-        public async Task<ActionResult<Menu>> GetMenu(string menuId, string tenantId, string clientId)
+        public async Task<ActionResult<List<Menu>>> GetMenu(string menuId, string tenantId, string clientId)
         {
             return await this.menuRepository.GetMenu(menuId, tenantId, clientId);
         }
@@ -29,7 +29,7 @@ namespace API.Controllers
         [Authorize(Role.ADMIN)]
         [Route("GetMenuWithParent/{menuId}/{tenantId}/{clientId}/{parentId}")]
         [HttpGet]
-        public async Task<ActionResult<Menu>> GetMenuWithParent(string menuId, string tenantId, string clientId, string parentId)
+        public async Task<ActionResult<List<Menu>>> GetMenuWithParent(string menuId, string tenantId, string clientId, string parentId)
         {
             return await this.menuRepository.GetMenuWithParent(menuId, tenantId, clientId, parentId);
         }

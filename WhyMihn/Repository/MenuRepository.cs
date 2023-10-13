@@ -17,43 +17,43 @@ namespace API.Repository
         {
             this.databaseHelper = databaseHelper;
         }
-        public async Task<ActionResult<Menu>> GetMenu(string menuId, string tenantId, string clientId)
+        public async Task<ActionResult<List<Menu>>> GetMenu(string menuId, string tenantId, string clientId)
         {
             SqlParameter[] parameters =
                 {
-                    new SqlParameter("p_tenant_id", tenantId),
-                    new SqlParameter("p_client_id", clientId), // 1 as default page to reuse the stored procedure
-                    new SqlParameter("p_menu_id", menuId),
+                    new SqlParameter("sTenantId", tenantId),
+                    new SqlParameter("sClientId", clientId), // 1 as default page to reuse the stored procedure
+                    new SqlParameter("sMenuId", menuId),
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedureWithPagination<Menu>("SP_WHYMINH_Get_Menu", parameters);
-            return results.Results.FirstOrDefault();
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Menu>("SP_WHYMINH_API_GET_MENU", parameters);
+            return results;
         }
 
-        public async Task<ActionResult<Menu>> GetMenuWithParent(string menuId, string tenantId, string clientId, string parentId)
+        public async Task<ActionResult<List<Menu>>> GetMenuWithParent(string menuId, string tenantId, string clientId, string parentId)
         {
             SqlParameter[] parameters =
                 {
-                    new SqlParameter("p_tenant_id", tenantId),
-                    new SqlParameter("p_client_id", clientId), // 1 as default page to reuse the stored procedure
-                    new SqlParameter("p_menu_id", menuId),
-                    new SqlParameter("p_parent_id", parentId),
+                    new SqlParameter("sTenantId", tenantId),
+                    new SqlParameter("sClientId", clientId), // 1 as default page to reuse the stored procedure
+                    new SqlParameter("sMenuId", menuId),
+                    new SqlParameter("sParentId", parentId),
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedureWithPagination<Menu>("SP_WHYMINH_Get_Menu_With_Parent", parameters);
-            return results.Results.FirstOrDefault();
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Menu>("SP_WHYMINH_API_GET_MENU_WITH_PARENT", parameters);
+            return results;
         }
 
         public async Task<ActionResult<Base>> AddMenu(AddMenuRequest addParameterRequest)
         {
             SqlParameter[] parameters =
                 {
-                    new SqlParameter("p_tenant_id", addParameterRequest.TenantId),
-                    new SqlParameter("p_client_id", addParameterRequest.ClientId),
-                    new SqlParameter("p_parent_id", addParameterRequest.ParentId),
-                    new SqlParameter("p_menu_id", addParameterRequest.MenuId),
-                    new SqlParameter("p_name", addParameterRequest.Name),
-                    new SqlParameter("p_url", addParameterRequest.Url),
+                    new SqlParameter("sTenantId", addParameterRequest.TenantId),
+                    new SqlParameter("sClientId", addParameterRequest.ClientId),
+                    new SqlParameter("sParentId", addParameterRequest.ParentId),
+                    new SqlParameter("sMenuId", addParameterRequest.MenuId),
+                    new SqlParameter("sName", addParameterRequest.Name),
+                    new SqlParameter("sURL", addParameterRequest.Url),
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_Add_Menu", parameters);
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_API_ADD_MENU", parameters);
             return results.FirstOrDefault();
         }
 
@@ -61,14 +61,14 @@ namespace API.Repository
         {
             SqlParameter[] parameters =
             {
-                    new SqlParameter("p_tenant_id", updateParameterRequest.TenantId),
-                    new SqlParameter("p_client_id", updateParameterRequest.ClientId),
-                    new SqlParameter("p_parent_id", updateParameterRequest.ParentId),
-                    new SqlParameter("p_menu_id", updateParameterRequest.MenuId),
-                    new SqlParameter("p_url", updateParameterRequest.Url),
-                    new SqlParameter("p_name", updateParameterRequest.Name),
+                    new SqlParameter("sTenantId", updateParameterRequest.TenantId),
+                    new SqlParameter("sClientId", updateParameterRequest.ClientId),
+                    new SqlParameter("sParentId", updateParameterRequest.ParentId),
+                    new SqlParameter("sMenuId", updateParameterRequest.MenuId),
+                    new SqlParameter("sURL", updateParameterRequest.Url),
+                    new SqlParameter("sName", updateParameterRequest.Name),
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_Update_Menu", parameters);
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_API_UPDATE_MENU", parameters);
             return results.FirstOrDefault();
         }
 
@@ -80,7 +80,7 @@ namespace API.Repository
                     new SqlParameter("p_client_id", clientId),
                     new SqlParameter("p_menu_id", menuId)
                 };
-            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_Delete_Menu", parameters);
+            var results = await this.databaseHelper.ExecuteStoredProcedure<Base>("SP_WHYMINH_API_DELETE_MENU", parameters);
             return results.FirstOrDefault();
         }
     }
