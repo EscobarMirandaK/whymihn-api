@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.Entities
 {
-    public class Menu
+    public class NotificationMethod
     {
         [Key]
         [Column("tenant_id")]
@@ -14,16 +14,10 @@ namespace API.Entities
         public string ClientId { get; set; }
 
         [Key]
-        [Column("menu_id")]
-        public string MenuId { get; set; }
+        [Column("notification_method_id")]
+        public string NotificationMethodId { get; set; }
 
         [Column("name")]
         public string Name { get; set; }
-
-        [Column("url")]
-        public string Url { get; set; }
-
-        [Column("parent_menu_id")]
-        public string ParentMenuId { get; set; }
     }
 }
