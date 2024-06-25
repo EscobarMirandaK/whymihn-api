@@ -1,7 +1,7 @@
 ﻿using API.Entities;
 using API.Interface;
 using API.Models.Tenant;
-using MySqlConnector;
+using Microsoft.Data.SqlClient;
 
 namespace API.Repository
 {
@@ -18,7 +18,7 @@ namespace API.Repository
         {
             try
             {
-                MySqlParameter[] parameters = null;
+                SqlParameter[] parameters = null;
                 var results = await this.databaseHelper.ExecuteStoredProcedure<Tenant>("SP_WHYMIHN_API_GET_TENANTS", parameters);
                 return results;
             }
@@ -32,10 +32,10 @@ namespace API.Repository
         {
             try
             {
-                MySqlParameter[] parameters =
+                SqlParameter[] parameters =
                 {
-                    new MySqlParameter("sTenantId", tenantRequest.TenantId),
-                    new MySqlParameter("sName", tenantRequest.Name),
+                    new SqlParameter("sTenantId", tenantRequest.TenantId),
+                    new SqlParameter("sName", tenantRequest.Name),
                 };
                 var results = await this.databaseHelper.ExecuteStoredProcedure<Tenant>("SP_WHYMIHN_API_CREATE_UPDATE_TENANT", parameters);
                 return results.FirstOrDefault();
