@@ -1,7 +1,7 @@
 ﻿using API.Entities;
 using API.Interface;
 using API.Models.Resource;
-using MySqlConnector;
+using Microsoft.Data.SqlClient;
 
 namespace API.Repository
 {
@@ -18,10 +18,10 @@ namespace API.Repository
         {
             try
             {
-                MySqlParameter[] parameters =
+                SqlParameter[] parameters =
                 {
-                    new MySqlParameter("sTenantId", tenantId),
-                    new MySqlParameter("sClientId", clientId)
+                    new SqlParameter("sTenantId", tenantId),
+                    new SqlParameter("sClientId", clientId)
                 };
                 var results = await this.databaseHelper.ExecuteStoredProcedure<Resource>("SP_WHYMIHN_API_GET_RESOURCES", parameters);
                 return results;
@@ -36,13 +36,13 @@ namespace API.Repository
         {
             try
             {
-                MySqlParameter[] parameters =
+                SqlParameter[] parameters =
                 {
-                    new MySqlParameter("sTenantId", clientRequest.TenantId),
-                    new MySqlParameter("sClientId", clientRequest.ClientId),
-                    new MySqlParameter("sKey", clientRequest.Key),
-                    new MySqlParameter("sValue", clientRequest.Value),
-                    new MySqlParameter("sLanguage", clientRequest.Language),
+                    new SqlParameter("sTenantId", clientRequest.TenantId),
+                    new SqlParameter("sClientId", clientRequest.ClientId),
+                    new SqlParameter("sKey", clientRequest.Key),
+                    new SqlParameter("sValue", clientRequest.Value),
+                    new SqlParameter("sLanguage", clientRequest.Language),
                 };
                 var results = await this.databaseHelper.ExecuteStoredProcedure<Resource>("SP_WHYMIHN_API_CREATE_UPDATE_RESOURCE", parameters);
                 return results.FirstOrDefault();

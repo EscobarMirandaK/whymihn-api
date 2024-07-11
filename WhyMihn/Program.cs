@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("dbConnection");
 //Do not forget to add ConnectionStrings as "dbConnection" to the appsetting.json file
 builder.Services.AddDbContext<DatabaseContext>
-    (options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    (options => options.UseSqlServer(connectionString));
 builder.Services.AddCors();
 builder.Services.AddTransient<IAuthRepository, AuthRepository>();
 builder.Services.AddTransient<IProfileRepository, ProfileRepository>();
@@ -23,6 +23,8 @@ builder.Services.AddTransient<IPasswordRepository, PasswordRepository>();
 builder.Services.AddTransient<IUsersRepository, UsersRepository>();
 builder.Services.AddTransient<IDashboardRepository, DashboardRepository>();
 builder.Services.AddTransient<ITenantRepository, TenantRepository>();
+builder.Services.AddTransient<IParameterRepository, ParameterRepository>();
+builder.Services.AddTransient<IMenuRepository, MenuRepository>();
 builder.Services.AddTransient<IClientRepository, ClientRepository>();
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
 builder.Services.AddTransient<IEmailHelper, EmailHelper>();

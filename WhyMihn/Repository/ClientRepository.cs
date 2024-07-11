@@ -1,7 +1,7 @@
 ﻿using API.Entities;
 using API.Interface;
 using API.Models.Client;
-using MySqlConnector;
+using Microsoft.Data.SqlClient;
 
 namespace API.Repository
 {
@@ -18,9 +18,9 @@ namespace API.Repository
         {
             try
             {
-                MySqlParameter[] parameters =
+                SqlParameter[] parameters =
                 {
-                    new MySqlParameter("sTenantId", tenantId)
+                    new SqlParameter("sTenantId", tenantId)
                 };
                 var results = await this.databaseHelper.ExecuteStoredProcedure<Client>("SP_WHYMIHN_API_GET_CLIENTS", parameters);
                 return results;
@@ -35,11 +35,11 @@ namespace API.Repository
         {
             try
             {
-                MySqlParameter[] parameters =
+                SqlParameter[] parameters =
                 {
-                    new MySqlParameter("sTenantId", clientRequest.TenantId),
-                    new MySqlParameter("sClientId", clientRequest.ClientId),
-                    new MySqlParameter("sName", clientRequest.Name),
+                    new SqlParameter("sTenantId", clientRequest.TenantId),
+                    new SqlParameter("sClientId", clientRequest.ClientId),
+                    new SqlParameter("sName", clientRequest.Name),
                 };
                 var results = await this.databaseHelper.ExecuteStoredProcedure<Client>("SP_WHYMIHN_API_CREATE_UPDATE_CLIENT", parameters);
                 return results.FirstOrDefault();
